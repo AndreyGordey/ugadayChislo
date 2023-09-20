@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Угадай число</title>
+    <style>
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Угадай число</h1>
+
+    <label for="guess">Введите число от 1 до 100:</label>
+    <input type="number" id="guess">
+    <button onclick="checkGuess()">Проверить</button>
+
+    <p id="result"></p>
+
+    <script>
+        var randomNumber = Math.floor(Math.random() * 100) + 1; // Генерируем случайное число от 1 до 100
+
+        function checkGuess() {
+            var guess = document.getElementById("guess").value; // Получаем значение, введенное пользователем
+            var result = document.getElementById("result");
+
+            if (guess == randomNumber) {
+                result.textContent = "Поздравляю! Вы угадали число!";
+            } else if (guess < randomNumber) {
+                result.textContent = "Загаданное число больше.";
+            } else if (guess > randomNumber) {
+                result.textContent = "Загаданное число меньше.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
